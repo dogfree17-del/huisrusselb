@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Huis Russel Botman Hub</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#881337" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="HRB Portal" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="https://placehold.co/192x192/881337/ffffff?text=HRB" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Outfit Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                pink: '#FF4D6D',
+                blue: '#4CC9F0',
+                purple: '#7209B7',
+                bg: '#F0F2F5',
+              },
+              neu: {
+                base: '#FFFFFF',
+                surface: '#FFFFFF',
+                accent: '#FF4D6D',
+                'accent-light': '#FCE7F3',
+                text: '#1A1A1A',
+                'text-secondary': '#64748B',
+              }
+            },
+            boxShadow: {
+              'brand': '0 25px 50px -12px rgba(255, 77, 109, 0.25)',
+              'soft': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+            },
+            animation: {
+              'shimmer': 'shimmer 2s linear infinite',
+              'slide-up': 'slideUp 0.5s ease-out forwards',
+              'slide-down': 'slideDown 0.5s ease-out forwards',
+              'zoom-in': 'zoomIn 0.3s ease-out forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'float': 'float 6s ease-in-out infinite',
+              'swing': 'swing 2s ease-in-out infinite',
+              'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+              'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
+            },
+            keyframes: {
+              pulseSlow: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0.8' },
+              },
+              swing: {
+                '0%, 100%': { transform: 'rotate(0deg)' },
+                '10%, 30%, 50%, 70%, 90%': { transform: 'rotate(10deg)' },
+                '20%, 40%, 60%, 80%': { transform: 'rotate(-10deg)' },
+              },
+              bounceSubtle: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-4px)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideDown: {
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              zoomIn: {
+                '0%': { transform: 'scale(0.95)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F0F2F5;
+        color: #1A1A1A;
+        font-family: 'Outfit', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overscroll-behavior-y: contain;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #FF4D6D; 
+        border-radius: 99px;
+      }
+      
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .fun-card {
+        background: white;
+        border-radius: 24px;
+        padding: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+      }
+      .fun-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .bento-item {
+        border-radius: 24px;
+        padding: 20px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 150px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .bento-item:active { transform: scale(0.95); }
+      .bento-item.large { grid-column: span 2; }
+      
+      .nav-pill {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(26, 26, 26, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 10px 25px;
+        border-radius: 40px;
+        display: flex;
+        gap: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 1000;
+      }
+      .nav-item { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 1.2rem; transition: 0.3s; }
+      .nav-item.active { color: #FF4D6D; }
+
+      .perspective-1000 { perspective: 1000px; }
+      .rotate-y-12 { transform: rotateY(12deg); }
+      
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Staggered entry animations for children */
+      .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+      .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+      .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+      .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+      .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+
+      /* Stylish Loader */
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FF4D6D;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+      @keyframes rotation {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "supabase": "https://esm.sh/@supabase/supabase-js@2.42.0",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "jspdf-autotable": "https://esm.sh/jspdf-autotable@3.8.2",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

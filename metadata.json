@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: Huis Russel Botman Portal",
+  "description": "Residence management app featuring venue booking, maintenance lodging, marketplace, and visitor tracking with role-based access control.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
